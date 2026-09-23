@@ -142,6 +142,9 @@ $$
 X\sim\operatorname{Bernoulli}(p).
 $$
 
+Binomnial one came first and Bernoulli is treated like a special case of it, but I like to go the other way.
+Bernoulli is really simple so makes sense to cover first and then binomial is sum of the $n$ bernoulli trials.
+
 #### Geometric distribution
 
 The geometric distribution describes the trial on which the first success
