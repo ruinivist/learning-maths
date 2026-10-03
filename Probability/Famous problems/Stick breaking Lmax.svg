@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="315" viewBox="0 0 640 420" role="img" aria-labelledby="title desc">
+  <title id="title">Longest piece length after one stick break</title>
+  <desc id="desc">The dashed lines show x and 1 minus x. The solid V-shaped curve is their maximum, with minimum one half at x equals one half.</desc>
+  <rect width="640" height="420" fill="white"/>
+  <text x="320" y="30" text-anchor="middle" font-family="sans-serif" font-size="20" fill="#222">Longest piece: Lₘₐₓ = max(x, 1 − x)</text>
+  <g stroke="#444" stroke-width="2" fill="none">
+    <path d="M80 60 V320 H560"/>
+  </g>
+  <g stroke="#bbb" stroke-width="1">
+    <path d="M80 190 H560 M320 60 V320"/>
+  </g>
+  <g font-family="sans-serif" font-size="14" fill="#333">
+    <text x="80" y="345" text-anchor="middle">0</text>
+    <text x="320" y="345" text-anchor="middle">½</text>
+    <text x="560" y="345" text-anchor="middle">1</text>
+    <text x="62" y="325" text-anchor="end">0</text>
+    <text x="62" y="195" text-anchor="end">½</text>
+    <text x="62" y="65" text-anchor="end">1</text>
+    <text x="575" y="345">x</text>
+    <text x="34" y="190" text-anchor="middle" transform="rotate(-90 34 190)">piece length</text>
+  </g>
+  <path d="M80 320 L560 60" fill="none" stroke="#527aa3" stroke-width="3" stroke-dasharray="9 7"/>
+  <path d="M80 60 L560 320" fill="none" stroke="#7b6a9b" stroke-width="3" stroke-dasharray="9 7"/>
+  <path d="M80 60 L320 190 L560 60" fill="none" stroke="#d34f45" stroke-width="5"/>
+  <circle cx="320" cy="190" r="5" fill="#d34f45"/>
+  <g font-family="sans-serif" font-size="15">
+    <text x="490" y="90" fill="#d34f45">Lₘₐₓ</text>
+    <text x="470" y="300" fill="#527aa3">x</text>
+    <text x="100" y="85" fill="#7b6a9b">1 − x</text>
+    <text x="330" y="212" fill="#333">(½, ½)</text>
+  </g>
+</svg>
