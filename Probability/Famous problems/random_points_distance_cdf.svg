@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="520" viewBox="0 0 600 520" role="img" aria-label="Unit square of uniformly sampled P and X, showing the green diagonal P equals X, the band where their distance is at most 0.25, and the two orange triangular regions where distance exceeds 0.25.">
+  <rect width="600" height="520" rx="16" fill="#ffffff"/>
+  <text x="300" y="31" text-anchor="middle" font-family="Arial, sans-serif" font-size="19" font-weight="700" fill="#1d2834">Distance between two uniform points (d = 0.25)</text>
+  <!-- square: x=P, vertical=X -->
+  <rect x="125" y="62" width="320" height="320" fill="#d8f2e7"/>
+  <!-- Complement = two congruent triangles -->
+  <polygon points="125,62 365,62 125,302" fill="#ffc8ae"/>
+  <polygon points="205,382 445,142 445,382" fill="#ffc8ae"/>
+  <!-- distance boundaries X=P+0.25, X=P-0.25 -->
+  <line x1="125" y1="302" x2="365" y2="62" stroke="#b85f3f" stroke-width="3" stroke-dasharray="9 6"/>
+  <line x1="205" y1="382" x2="445" y2="142" stroke="#b85f3f" stroke-width="3" stroke-dasharray="9 6"/>
+  <!-- Diagonal, P=X -->
+  <line x1="125" y1="382" x2="445" y2="62" stroke="#168257" stroke-width="4"/>
+  <rect x="125" y="62" width="320" height="320" fill="none" stroke="#293b48" stroke-width="2"/>
+  <!-- Ticks and coordinate labels -->
+  <g fill="#263748" font-family="Arial, sans-serif" font-size="16">
+    <text x="115" y="403" text-anchor="end">0</text>
+    <text x="445" y="403" text-anchor="middle">1</text>
+    <text x="115" y="69" text-anchor="end">1</text>
+    <text x="285" y="423" text-anchor="middle" font-size="19" font-weight="600">P</text>
+    <text x="76" y="224" text-anchor="middle" font-size="19" font-weight="600" transform="rotate(-90 76 224)">X</text>
+  </g>
+  <!-- Labels within regions -->
+  <g font-family="Arial, sans-serif" font-size="16" font-weight="600">
+    <text x="179" y="104" text-anchor="middle" fill="#7e3529">X − P &gt; d</text>
+    <text x="393" y="340" text-anchor="middle" fill="#7e3529">P − X &gt; d</text>
+  </g>
+  <!-- Legend -->
+  <g font-family="Arial, sans-serif" font-size="15" fill="#2b3a45">
+    <line x1="66" y1="453" x2="109" y2="453" stroke="#168257" stroke-width="4"/>
+    <text x="122" y="458">Green line: P = X (distance 0)</text>
+    <line x1="66" y1="486" x2="109" y2="486" stroke="#b85f3f" stroke-width="3" stroke-dasharray="8 5"/>
+    <text x="122" y="491">Dashed lines: |P − X| = d</text>
+    <rect x="369" y="443" width="20" height="20" fill="#d8f2e7" stroke="#9acaba"/>
+    <text x="399" y="459">D ≤ d</text>
+    <rect x="369" y="477" width="20" height="20" fill="#ffc8ae" stroke="#cf9782"/>
+    <text x="399" y="493">D &gt; d</text>
+  </g>
+</svg>

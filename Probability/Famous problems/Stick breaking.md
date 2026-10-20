@@ -1043,3 +1043,196 @@ Again,
 $$
 E[L]=3E[A^2]=3\cdot\frac16=\boxed{\frac12}.
 $$
+
+## Problem 14: Distance between a random point and a random break
+
+Choose two independent points $P,X\sim U(0,1)$ on a unit stick, where $X$ is the break point. Let $D=|P-X|$.
+
+Find $E[D]$, the CDF, and the PDF of $D$.
+
+## Solution
+
+### Prereq: Making a JPDF
+
+P: Given $f_X(x)=2x$, $f_Y(y)=2y$.
+
+Find $f_{X,Y}(x,y)$?
+
+S:
+
+$$
+f_{X,Y}(x,y)=f_X(x)\cdot f_{Y|X}(y|x)
+$$
+
+If independent:
+
+$$
+=f_X(x)\cdot f_Y(y)
+$$
+
+Note: $\iint f_{X,Y}(x,y),dx,dy=1$ for valid JPDFs.
+
+Also, given that $f(x)$ does not have $y$, and reverse, both are independent.
+
+For this one,
+
+$$
+\begin{aligned}
+f_{X,Y}(x,y)&=f_X(x)\cdot f_{Y|X}(y|x)\
+&=2x\cdot 2y\
+&=\boxed{4xy}
+\end{aligned}
+$$
+
+### Back to the problem, the obvious solution
+
+Since $P$ and $X$ are independent and uniform, their joint density is $f_{P,X}(p,x)=1$ on $(0,1)^2$.
+
+By symmetry,
+
+$$
+\begin{aligned}
+E[D]
+&=\int_0^1\int_0^1|p-x|\,dp\,dx\\
+&=2\int_0^1\int_0^x(x-p)\,dp\,dx\\
+&=\int_0^1x^2\,dx\\
+&=\boxed{\frac13}.
+\end{aligned}
+$$
+
+### Finding the CDF
+
+We want $F_D(d)=P(|P-X|\le d)$, where $P,X\overset{\mathrm{iid}}{\sim}U(0,1)$.
+
+**Method 1: Geometrical approach**
+
+For $0\le d\le1$, the complement $|P-X|>d$ consists of two triangles in the unit square, each with area $\frac{(1-d)^2}{2}$.
+
+Since the joint PDF is $1$, probability equals area. Thus,
+
+$$
+\begin{aligned}
+F_D(d)
+&=1-P(|P-X|>d)\\
+&=1-2\left(\frac{(1-d)^2}{2}\right)\\
+&=\boxed{2d-d^2}.
+\end{aligned}
+$$
+
+![area-viz](./random_points_distance_cdf.svg)
+
+**Method 2: Conditional probability**
+
+By symmetry,
+
+$$
+\begin{aligned}
+F_D(d)
+&=1-P(P>X+d)-P(X>P+d)\\
+&=1-2P(P>X+d).
+\end{aligned}
+$$
+
+Conditioning on $X=x$ and using independence,
+
+$$
+\begin{aligned}
+P(P>X+d)
+&=\int_0^{1-d}P(P>x+d\mid X=x)f_X(x)\,dx\\
+&=\int_0^{1-d}(1-x-d)\,dx\\
+&=\frac{(1-d)^2}{2}.
+\end{aligned}
+$$
+
+Hence,
+
+$$
+F_D(d)=1-(1-d)^2=\boxed{2d-d^2}.
+$$
+
+**Complete CDF**
+
+$$
+\boxed{
+F_D(d)=
+\begin{cases}
+0,&d<0,\\
+2d-d^2,&0\le d\le1,\\
+1,&d>1.
+\end{cases}
+}
+$$
+
+**Finding the PDF**
+
+Differentiating the CDF,
+
+$$
+\boxed{
+f_D(d)=
+\begin{cases}
+2(1-d),&0<d<1,\\
+0,&\text{otherwise}.
+\end{cases}
+}
+$$
+
+Thus, shorter distances are more likely, even though both points are uniformly distributed.
+
+### Alternative: using linearity
+
+Using $|X-Y|=X+Y-2\min(X,Y)$,
+
+$$
+E[|X-Y|]=E[X]+E[Y]-2E[\min(X,Y)].
+$$
+
+Since $X,Y\overset{\mathrm{iid}}{\sim}U(0,1)$, we have $E[X]=E[Y]=\frac12$.
+
+Using the tail expectation formula and independence,
+
+$$
+\begin{aligned}
+E[\min(X,Y)]
+&=\int_0^1 P(X>t,Y>t)\,dt\\
+&=\int_0^1(1-t)^2\,dt=\frac13.
+\end{aligned}
+$$
+
+Therefore,
+
+$$
+E[|X-Y|]=\frac12+\frac12-2\left(\frac13\right)
+=\boxed{\frac13}.
+$$
+
+### Alternative: Using conditional expectation and symmetry
+
+Since $X,Y\overset{\mathrm{iid}}{\sim}U(0,1)$, both cases $X>Y$ and $Y>X$ are symmetric, each with probability $\frac12$.
+
+By the law of total expectation,
+
+$$
+\begin{aligned}
+E[|X-Y|]
+&=2P(X>Y)E[X-Y\mid X>Y]\\
+&=2\left(\frac12\right)E[X-Y\mid X>Y].
+\end{aligned}
+$$
+
+Now,
+
+$$
+\begin{aligned}
+E[X-Y\mid X>Y]
+&=\frac{\int_0^1\int_0^x(x-y)\,dy\,dx}{P(X>Y)}\\
+&=2\int_0^1\frac{x^2}{2}\,dx
+=\frac13.
+\end{aligned}
+$$
+
+Therefore,
+
+$$
+\boxed{E[|X-Y|]=2\left(\frac12\right)\left(\frac13\right)=\frac13}.
+$$
