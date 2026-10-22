@@ -1,0 +1,3 @@
+- https://www.math.lsu.edu/~smolinsk/Quant_Interview_Prep.pdf
+- https://jerryqin.com/
+- https://puzzles.nigelcoldwell.co.uk/
