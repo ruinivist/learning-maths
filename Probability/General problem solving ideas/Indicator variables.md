@@ -66,8 +66,8 @@ The first two moments also give $\operatorname{Var}(X)=E[X^2]-E[X]^2=5-4=1$.
 
 The distribution route first requires $P(X=x)=\binom4x/16$:
 
-| $x$ | $0$ | $1$ | $2$ | $3$ | $4$ |
-| --- | --- | --- | --- | --- | --- |
+| $x$      | $0$    | $1$    | $2$    | $3$    | $4$    |
+| -------- | ------ | ------ | ------ | ------ | ------ |
 | $P(X=x)$ | $1/16$ | $4/16$ | $6/16$ | $4/16$ | $1/16$ |
 
 Then, for example,
@@ -79,3 +79,31 @@ Counting groups needed only the probabilities that specified tosses were all hea
 ### Summary
 
 Count successful groups to find $E[\binom{X}{r}]$. Expand $X(X-1)\cdots(X-r+1)$, apply linearity, and solve for $E[X^r]$ using lower moments.
+
+## Slicing theorem
+
+I always found it a bit unintuitive, so I'll try to do it once and for all.
+
+For a nonnegative integer-valued RV, basically a count, think of $X=I_1+I_2+\cdots$, where the indicators are defined on $X$ itself:
+
+$$I_k=\mathbf{1}_{\{X\geq k\}}$$
+
+So $I_1$ adds $1$ if $X\geq 1$, $I_2$ adds $1$ if $X\geq 2$, and so on.
+
+Naturally, if $X=4$, the first four indicators contribute $1$ each and all later ones contribute $0$.
+
+We don't know beforehand where the $1$s stop, but since the later terms add nothing, let's just sum to infinity:
+
+$$X=\sum_{k=1}^{\infty}\mathbf{1}_{\{X\geq k\}}$$
+
+Take expectations:
+
+$$E[X]=\sum_{k=1}^{\infty}E[\mathbf{1}_{\{X\geq k\}}]$$
+
+For indicator variables, the expectation is just the probability of the event. This gives the discrete case:
+
+$$\boxed{E[X]=\sum_{k=1}^{\infty}P(X\geq k)}$$
+
+For nonnegative continuous $X$, the corresponding formula replaces the sum with an integral:
+
+$$\boxed{E[X]=\int_0^{\infty}P(X>t)\,dt}$$
