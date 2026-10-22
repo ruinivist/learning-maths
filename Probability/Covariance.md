@@ -1,0 +1,33 @@
+## Covariance
+
+For random variables $X,Y$ with finite second moments,
+
+$$\operatorname{Cov}(X,Y)=E[(X-E[X])(Y-E[Y])]=E[XY]-E[X]E[Y]$$
+
+Positive covariance means deviations from their means tend to have the same sign; negative covariance means they tend to have opposite signs.
+
+## Properties
+
+For constants $a,b,c,d$:
+
+- Symmetry: $\operatorname{Cov}(X,Y)=\operatorname{Cov}(Y,X)$.
+- $\operatorname{Cov}(X,X)=\operatorname{Var}(X)$.
+- $\operatorname{Cov}(X,c)=0$.
+- Scaling and shifts: $\operatorname{Cov}(aX+b,cY+d)=ac\operatorname{Cov}(X,Y)$.
+- Additivity: $\operatorname{Cov}(X+Y,Z)=\operatorname{Cov}(X,Z)+\operatorname{Cov}(Y,Z)$.
+- Independence implies $\operatorname{Cov}(X,Y)=0$. The converse need not hold; zero covariance is called **uncorrelated**.
+- $|\operatorname{Cov}(X,Y)|\leq\sqrt{\operatorname{Var}(X)\operatorname{Var}(Y)}$.
+
+For sums,
+
+$$\operatorname{Cov}\left(\sum_i a_iX_i,\sum_j b_jY_j\right)=\sum_i\sum_j a_ib_j\operatorname{Cov}(X_i,Y_j)$$
+
+In particular,
+
+$$\operatorname{Var}(X+Y)=\operatorname{Var}(X)+\operatorname{Var}(Y)+2\operatorname{Cov}(X,Y)$$
+
+$$\operatorname{Var}\left(\sum_{i=1}^nX_i\right)=\sum_{i=1}^n\operatorname{Var}(X_i)+2\sum_{i<j}\operatorname{Cov}(X_i,X_j)$$
+
+For event indicators,
+
+$$\operatorname{Cov}(\mathbf{1}_A,\mathbf{1}_B)=P(A\cap B)-P(A)P(B)$$
