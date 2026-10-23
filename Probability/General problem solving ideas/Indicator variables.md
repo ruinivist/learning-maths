@@ -107,3 +107,15 @@ $$\boxed{E[X]=\sum_{k=1}^{\infty}P(X\geq k)}$$
 For nonnegative continuous $X$, the corresponding formula replaces the sum with an integral:
 
 $$\boxed{E[X]=\int_0^{\infty}P(X>t)\,dt}$$
+
+## Higher moments of an indicator
+
+If $X_i$ is an indicator with $P(X_i=1)=p$, then $X_i\in\{0,1\}$. For every integer $n\geq 1$,
+
+$$X_i^n=X_i,\qquad \boxed{E[X_i^n]=E[X_i]=p}$$
+
+All positive integer moments are the same. In particular,
+
+$$\operatorname{Var}(X_i)=E[X_i^2]-E[X_i]^2=p-p^2=p(1-p)$$
+
+This above is the variance for a Bernoulli distribution.
