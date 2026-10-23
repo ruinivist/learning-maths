@@ -4,6 +4,8 @@ For random variables $X,Y$ with finite second moments,
 
 $$\operatorname{Cov}(X,Y)=E[(X-E[X])(Y-E[Y])]=E[XY]-E[X]E[Y]$$
 
+> to remember, relate this to the 0 covar for independence case
+
 Positive covariance means deviations from their means tend to have the same sign; negative covariance means they tend to have opposite signs.
 
 ## Properties
@@ -31,3 +33,13 @@ $$\operatorname{Var}\left(\sum_{i=1}^nX_i\right)=\sum_{i=1}^n\operatorname{Var}(
 For event indicators,
 
 $$\operatorname{Cov}(\mathbf{1}_A,\mathbf{1}_B)=P(A\cap B)-P(A)P(B)$$
+
+## Variance properties
+
+For random variables with finite second moments and constants $a,b$:
+
+- $\operatorname{Var}(X)=E[(X-E[X])^2]=E[X^2]-(E[X])^2$.
+- $\operatorname{Var}(X)\geq 0$.
+- $\operatorname{Var}(X)=0$ if and only if $X=E[X]$ with probability $1$.
+- $\operatorname{Var}(aX+b)=a^2\operatorname{Var}(X)$: shifts do not affect variance; scaling acts quadratically.
+- If $X,Y$ are uncorrelated (in particular, if independent), $\operatorname{Var}(X+Y)=\operatorname{Var}(X)+\operatorname{Var}(Y)$.
