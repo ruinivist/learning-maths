@@ -43,3 +43,12 @@ For random variables with finite second moments and constants $a,b$:
 - $\operatorname{Var}(X)=0$ if and only if $X=E[X]$ with probability $1$.
 - $\operatorname{Var}(aX+b)=a^2\operatorname{Var}(X)$: shifts do not affect variance; scaling acts quadratically.
 - If $X,Y$ are uncorrelated (in particular, if independent), $\operatorname{Var}(X+Y)=\operatorname{Var}(X)+\operatorname{Var}(Y)$.
+
+## Covariance of independent random variables
+
+Let $X_1,\ldots,X_n$ be independent random variables with finite second moments. Then
+
+$$\operatorname{Cov}(X_i,X_j)=E[X_iX_j]-E[X_i]E[X_j]=\begin{cases}\operatorname{Var}(X_i) & i=j \\ 0 & i\ne j\end{cases}$$
+
+- For $i=j$, the expression is $E[X_i^2]-(E[X_i])^2=\operatorname{Var}(X_i)$.
+- For $i\ne j$, independence gives $E[X_iX_j]=E[X_i]E[X_j]$, so the covariance is $0$.
