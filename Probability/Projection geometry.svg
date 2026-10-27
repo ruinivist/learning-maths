@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="390" viewBox="0 0 880 390" role="img" aria-labelledby="title desc">
+  <title id="title">Orthogonal projection and the closest point</title>
+  <desc id="desc">A blue vector x ends above a horizontal subspace S. Its projection m lies directly below it, and the orange residual r is perpendicular to S. An alternative point z lies farther left; the error from z to x is the hypotenuse of a right triangle.</desc>
+  <defs>
+    <marker id="blue-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8" fill="#1d4ed8"/></marker>
+    <marker id="orange-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8" fill="#b45309"/></marker>
+    <marker id="green-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8" fill="#047857"/></marker>
+  </defs>
+  <rect width="880" height="390" rx="12" fill="#fff"/>
+  <g font-family="sans-serif" font-size="18" fill="#172033">
+    <text x="32" y="36" font-size="23" font-weight="bold">Projection leaves a perpendicular error</text>
+    <line x1="48" y1="280" x2="811" y2="280" stroke="#64748b" stroke-width="2"/>
+    <text x="665" y="310">subspace S</text>
+    <line x1="100" y1="280" x2="548" y2="82" stroke="#1d4ed8" stroke-width="3" marker-end="url(#blue-arrow)"/>
+    <line x1="100" y1="280" x2="548" y2="280" stroke="#047857" stroke-width="4" marker-end="url(#green-arrow)"/>
+    <line x1="548" y1="280" x2="548" y2="82" stroke="#b45309" stroke-width="3" marker-end="url(#orange-arrow)"/>
+    <line x1="310" y1="280" x2="548" y2="82" stroke="#64748b" stroke-width="2" stroke-dasharray="7 5"/>
+    <path d="M530 280 L530 262 L548 262" fill="none" stroke="#b45309" stroke-width="2"/>
+    <circle cx="100" cy="280" r="4" fill="#172033"/>
+    <circle cx="310" cy="280" r="5" fill="#64748b"/>
+    <circle cx="548" cy="82" r="5" fill="#1d4ed8"/>
+    <text x="89" y="310">0</text>
+    <text x="301" y="310">z</text>
+    <text x="539" y="310" fill="#047857">m</text>
+    <text x="562" y="85" fill="#1d4ed8">x</text>
+    <text x="169" y="259" fill="#047857">projection m</text>
+    <text x="570" y="180" fill="#b45309">r = x − m</text>
+    <text x="442" y="201" fill="#475569">x − z</text>
+    <text x="80" y="360">Distance² from x to z = residual length² + distance² from m to z</text>
+  </g>
+</svg>

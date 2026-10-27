@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="530" viewBox="0 0 880 530" role="img" aria-labelledby="title desc">
+  <title id="title">Conditional expectation averages within information groups</title>
+  <desc id="desc">On a fair die, parity divides outcomes into odd rolls 1, 3, 5 and even rolls 2, 4, 6. Their means are 3 and 4. Within each group the errors are minus 2, zero, and 2, summing to zero. In outcome order the prediction vector is 3, 4, 3, 4, 3, 4.</desc>
+  <rect width="880" height="530" rx="12" fill="#fff"/>
+  <g font-family="sans-serif" font-size="18" fill="#172033" text-anchor="middle">
+    <text x="440" y="36" font-size="23" font-weight="bold">Knowing parity leaves two distinguishable groups</text>
+    <text x="440" y="66" fill="#475569">Each outcome has probability 1/6</text>
+    <rect x="32" y="91" width="394" height="310" rx="12" fill="#eff6ff" stroke="#1d4ed8" stroke-width="2"/>
+    <rect x="454" y="91" width="394" height="310" rx="12" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+    <text x="229" y="125" fill="#1d4ed8" font-weight="bold">Odd: Y = 0</text>
+    <text x="651" y="125" fill="#047857" font-weight="bold">Even: Y = 1</text>
+    <text x="229" y="164" fill="#475569">Possible values of X</text>
+    <text x="651" y="164" fill="#475569">Possible values of X</text>
+    <g font-size="25" font-weight="bold">
+      <text x="109" y="205">1</text><text x="229" y="205">3</text><text x="349" y="205">5</text>
+      <text x="531" y="205">2</text><text x="651" y="205">4</text><text x="771" y="205">6</text>
+    </g>
+    <path d="M109 219 L229 245 L349 219 M531 219 L651 245 L771 219" fill="none" stroke="#64748b" stroke-width="2"/>
+    <text x="229" y="277" font-size="22" fill="#1d4ed8">Predict mean 3 for all three</text>
+    <text x="651" y="277" font-size="22" fill="#047857">Predict mean 4 for all three</text>
+    <text x="229" y="319" fill="#475569">Errors: X − prediction</text>
+    <text x="651" y="319" fill="#475569">Errors: X − prediction</text>
+    <g font-size="23" fill="#b45309">
+      <text x="109" y="354">−2</text><text x="229" y="354">0</text><text x="349" y="354">+2</text>
+      <text x="531" y="354">−2</text><text x="651" y="354">0</text><text x="771" y="354">+2</text>
+    </g>
+    <text x="229" y="384">Group error sum = 0</text>
+    <text x="651" y="384">Group error sum = 0</text>
+    <text x="440" y="440" fill="#475569">Back in outcome order 1, 2, 3, 4, 5, 6:</text>
+    <text x="440" y="477" font-size="24">M = E[X | Y] = (3, 4, 3, 4, 3, 4)</text>
+    <text x="440" y="511" font-size="16" fill="#475569">One prediction per group, repeated at every outcome in that group.</text>
+  </g>
+</svg>
