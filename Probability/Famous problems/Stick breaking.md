@@ -1236,3 +1236,21 @@ Therefore,
 $$
 \boxed{E[|X-Y|]=2\left(\frac12\right)\left(\frac13\right)=\frac13}.
 $$
+
+## Problem 15: A second break before the first
+
+Break a unit stick at $X\sim U(0,1)$. Given $X=x$, choose a second breakpoint $Y$ uniformly on $[0,x]$. Find $E[Y\mid X]$ and the mean and variance of this conditional expectation.
+
+### Solution
+
+Given $X=x$, the midpoint of $[0,x]$ is the conditional mean:
+
+$$E[Y\mid X=x]=\frac{x}{2},\qquad E[Y\mid X]=\frac X2$$
+
+Since $X\sim U(0,1)$ has mean $1/2$ and variance $1/12$,
+
+$$E[E[Y\mid X]]=\frac12E[X]=\boxed{\frac14}$$
+
+$$\operatorname{Var}(E[Y\mid X])=\operatorname{Var}\left(\frac X2\right)=\frac14\operatorname{Var}(X)=\boxed{\frac1{48}}$$
+
+The tower property also gives $E[Y]=1/4$. The variance above is for $E[Y\mid X]$, not for $Y$: using total variance, $\operatorname{Var}(Y)=E[X^2/12]+1/48=\boxed{7/144}$.
