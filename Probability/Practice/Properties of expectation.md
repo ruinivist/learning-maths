@@ -173,6 +173,34 @@ This also follows from Wald's identity. First-step conditioning applies to other
 
 </details>
 
+### Follow-up: Waiting for HT
+
+Let $T_{HT}$ count flips until a head immediately followed by a tail first appears, including the final tail. Find $E[T_{HT}]$. Why does it differ from the expected waiting time of $6$ flips for HH?
+
+<details>
+<summary>Show solution</summary>
+
+For HT, let $g_0$ be the expected waiting time from the start or after a tail, and $g_1$ the expected waiting time after a head, before HT has appeared.
+
+For HT, once you have a head, your progress cannot be destroyed:
+
+- Another head leaves a head at the end, so you are still one tail away from finishing.
+- A tail completes HT.
+
+From the start, a tail leaves us at $g_0$ and a head moves us to $g_1$. After a head, a tail finishes and another head leaves us at $g_1$:
+
+$$g_0=1+\frac12g_0+\frac12g_1,\qquad g_1=1+\frac12(0)+\frac12g_1$$
+
+Thus $g_1=2$ and $g_0=2+g_1=4$:
+
+$$E[T_{HT}]=g_0=\boxed{4}$$
+
+For HH, a tail after the first head destroys your progress: HT does not finish HH, and you must find a new first head. This restart makes $h_2=6$, compared with $E[T_{HT}]=4$.
+
+Both patterns have probability $1/4$ in a fixed pair of flips. But consecutive pairs overlap and share a flip, so they are not independent attempts. Their first waiting times depend on how each new flip preserves or destroys progress.
+
+</details>
+
 ## Problem 8: A die chooses the number of tosses
 
 Roll a fair six-sided die to choose $N$, then toss a fair coin $N$ times independently. Let $X$ count heads. Without finding its distribution, find:
@@ -363,5 +391,108 @@ Use the tower-property calculation above to find $E[XS]$.
 Independence gives $E[XY]=E[X]E[Y]$, so
 
 $$E[XS]=E[X(X+Y)]=E[X^2]+E[X]E[Y]=\frac{91}{6}+\frac72\cdot\frac72=\boxed{\frac{329}{12}}$$
+
+</details>
+
+## Problem 14: Bidding for a mystery prize
+
+A mystery prize has value $V\sim\operatorname{Uniform}(0,1)$, measured in millions of dollars. Choose a fixed bid $b\geq0$ without knowing $V$.
+
+- If $b<2V/3$, the bid is rejected and your payoff is $0$.
+- If $b\geq2V/3$, you pay $b$, receive the prize, and your payoff is $V-b$.
+
+Find the bid that maximizes your expected payoff.
+
+<details>
+<summary>Show solution</summary>
+
+Let $W$ be your payoff. Acceptance means $V\leq3b/2$, so an accepted bid selects prizes with lower values.
+
+For $0<b\leq2/3$, the probability of acceptance is $3b/2$. Given acceptance, $V$ is uniform on $[0,3b/2]$, so
+
+$$E[V\mid\text{accepted}]=\frac{3b}{4},\qquad E[W\mid\text{accepted}]=\frac{3b}{4}-b=-\frac b4$$
+
+Rejected bids have zero payoff. By conditioning on acceptance,
+
+$$E[W]=P(\text{accepted})E[W\mid\text{accepted}]=\frac{3b}{2}\left(-\frac b4\right)=-\frac{3b^2}{8}<0$$
+
+For $b>2/3$, every bid is accepted, giving
+
+$$E[W]=E[V]-b=\frac12-b<0$$
+
+At $b=0$, the payoff is $0$ with probability $1$. Every positive bid has negative expected payoff, so
+
+$$\boxed{b^*=0,\qquad \max E[W]=0}$$
+
+Using the unconditional mean $E[V]=1/2$ for an accepted prize would miss the information supplied by acceptance. For positive bids up to $2/3$, an accepted prize is worth only $3b/4$ on average, less than the price $b$ you pay.
+
+Winner's curse: expected value on conditioning the bid is expected is oftern lower than the unconditional expected value
+
+</details>
+
+## Problem 15: A random walk on the integers
+
+A walker starts at $0$. At each step, independently, they move one unit left or right with equal probability. Let $b$ be a googolplex, $10^{10^{100}}$.
+
+1. What is the probability that the walker visits $b$ before returning to $0$ for the first time?
+2. What is the expected number of visits to $b$ before that first return to $0$?
+
+<details>
+<summary>Show solution</summary>
+
+Let $A$ be the event that the walker visits $b$ before returning to $0$, and let $X_1$ be the position after the first step. Conditioning on that step,
+
+$$P(A)=P(A\mid X_1=1)P(X_1=1)+P(A\mid X_1=-1)P(X_1=-1)$$
+
+The fair [gambler's ruin](../Famous%20problems/Gamblers%20ruin.md) result says that a walk starting at $i$ between $0$ and $b$ reaches $b$ before $0$ with probability $i/b$. Starting from $1$, this gives $P(A\mid X_1=1)=1/b$.
+
+Starting from $-1$, the walker must pass through $0$ before reaching $b$, so $P(A\mid X_1=-1)=0$. Each first step has probability $1/2$, giving
+
+$$P(A)=\frac1b\cdot\frac12+0\cdot\frac12=\boxed{\frac{1}{2b}}$$
+
+After a visit to $b$, the next step is to $b-1$ or $b+1$, each with probability $1/2$. From $b-1$, gambler's ruin gives the probability of reaching $b$ before $0$:
+
+$$P(\text{reach }b\text{ before }0\mid X_0=b-1)=\frac{b-1}{b}$$
+
+The walk eventually reaches one of these boundaries, so the probability of reaching $0$ before returning to $b$ is the complement:
+
+$$P(\text{reach }0\text{ before }b\mid X_0=b-1)=1-\frac{b-1}{b}=\frac1b$$
+
+From $b+1$, the walk must pass through $b$ before reaching $0$, so the corresponding probability is $0$. Conditioning on the next step, the probability that the current visit to $b$ is the last before returning to $0$ is
+
+$$\frac12\cdot\frac1b+\frac12\cdot0=\frac1{2b}$$
+
+Given that the walker reaches $b$, the number of visits to $b$ is geometric with success probability $1/(2b)$ and mean $2b$. Otherwise it is zero. Hence
+
+$$E[\text{visits to }b]=\frac{1}{2b}\cdot 2b=\boxed{1}$$
+
+### First-step analysis (FSA)
+
+Use two states after a visit to $b$: either the walk returns to $b$, or it reaches $0$ and stops. Let $m$ be the expected number of visits to $b$ starting at $b$, counting the current visit. The return state has probability $1-1/(2b)$ and expected future visits $m$; the stopping state has probability $1/(2b)$ and expected future visits $0$. Thus
+
+$$m=1+\left(1-\frac1{2b}\right)m+\frac1{2b}\cdot0$$
+
+Solving gives $m=2b$. Conditioning on whether the walk reaches $b$ before its first return to $0$,
+
+$$E[\text{visits to }b]=P(A)m+P(A^c)\cdot0=\frac1{2b}\cdot2b=\boxed{1}$$
+
+</details>
+
+## Word problems
+
+### Problem 16: Life expectancy
+
+Fred is 30 years old. The average lifespan in his country is 80 years. Can he conclude that his expected remaining lifespan is 50 years?
+
+<details>
+<summary>Show solution</summary>
+
+Let $T$ be Fred's lifespan. Assuming Fred's lifespan follows the country's lifespan distribution, $E[T]=80$. Since he has reached age 30, his expected remaining lifespan is
+
+$$E[T-30\mid T\geq30]=E[T\mid T\geq30]-30$$
+
+The average of 80 includes people who died before age 30. By the law of total expectation, excluding them cannot lower the average lifespan. If there is a positive chance of dying before age 30, then $E[T\mid T\geq30]>80$, so Fred's expected remaining lifespan is greater than 50 years. If no one dies before age 30, it equals 50 years.
+
+The exact expectation cannot be found from the overall average alone; it depends on the lifespan distribution.
 
 </details>
