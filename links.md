@@ -2,3 +2,4 @@
 - https://jerryqin.com/
 - https://puzzles.nigelcoldwell.co.uk/
 - https://jaylorch.net/brainteasers/
+- https://quantmemo.com/questions
